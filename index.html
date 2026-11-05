@@ -62,7 +62,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav a:not(.btn){color:var(--muted);transition:color .2s}
 .nav a:not(.btn):hover{color:var(--fg)}
 .nav .btn{padding:9px 16px}
-@media (max-width:760px){.nav a:not(.btn){display:none}}
+.lang{display:inline-flex;border:1px solid var(--line)}
+.lang button{padding:7px 10px;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--muted);transition:color .2s,background .2s}
+.lang button:hover{color:var(--fg)}
+.lang button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+@media (max-width:760px){.nav a:not(.btn){display:none}.nav{gap:12px}}
 
 /* hero */
 .hero{padding:150px 0 72px;position:relative;overflow:hidden}
@@ -269,11 +273,12 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Falka Derizqia, back to top">FD.</a>
     <nav class="nav" aria-label="Main">
-      <a href="#results">Results</a>
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="btn">Let's talk <span class="arr">→</span></a>
+      <a href="#results" data-i18n="nav.results">Results</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <div class="lang" role="group" aria-label="Language / Bahasa"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="id" aria-pressed="false">ID</button></div>
+      <a href="#contact" class="btn" data-i18n="nav.talk">Let's talk <span class="arr">→</span></a>
     </nav>
   </div>
 </header>
@@ -284,15 +289,15 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow fade" style="--d:.1s"><span class="dot"></span>Open to projects · 2026 · Tangerang</div>
+          <div class="eyebrow fade" style="--d:.1s" data-i18n="hero.eyebrow"><span class="dot"></span>Open to projects · 2026 · Tangerang</div>
           <h1 class="h1">
-            <span class="l"><span style="--i:0">Visuals that sell.</span></span>
-            <span class="l"><span style="--i:1">Ads that prove it.</span></span>
+            <span class="l"><span style="--i:0" data-i18n="hero.l1">Visuals that sell.</span></span>
+            <span class="l"><span style="--i:1" data-i18n="hero.l2">Ads that prove it.</span></span>
           </h1>
-          <p class="intro fade">I'm <b>Falka Derizqia</b>, a graphic designer and ads specialist. I design brand identities and social content, then run the Meta Ads that turn them into chats, leads, and sales.</p>
+          <p class="intro fade" data-i18n="hero.intro">I'm <b>Falka Derizqia</b>, a graphic designer and ads specialist. I design brand identities and social content, then run the Meta Ads that turn them into chats, leads, and sales.</p>
           <div class="actions fade" style="--d:.6s">
-            <a href="#results" class="btn btn-solid">See the results <span class="arr">→</span></a>
-            <a href="#contact" class="btn">Let's work together</a>
+            <a href="#results" class="btn btn-solid" data-i18n="hero.cta1">See the results <span class="arr">→</span></a>
+            <a href="#contact" class="btn" data-i18n="hero.cta2">Let's work together</a>
           </div>
         </div>
         <figure class="photo fade" style="--d:.3s">
@@ -302,10 +307,10 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
       </div>
 
       <div class="proof">
-        <div class="rv" style="--i:0"><b class="num" data-to="220">220</b><span>chats from one Meta Ads client</span></div>
-        <div class="rv" style="--i:1"><b class="num" data-to="6424" data-pre="Rp">Rp6,424</b><span>lowest cost per chat</span></div>
-        <div class="rv" style="--i:2"><b class="num" data-to="6.35" data-dec="2" data-suf="%">6.35%</b><span>click-through rate on paid social</span></div>
-        <div class="rv" style="--i:3"><b class="num" data-to="4" data-suf="+">4+</b><span>years in design &amp; ads</span></div>
+        <div class="rv" style="--i:0"><b class="num" data-to="220">220</b><span data-i18n="proof.1">chats from one Meta Ads client</span></div>
+        <div class="rv" style="--i:1"><b class="num" data-to="6424" data-pre="Rp">Rp6,424</b><span data-i18n="proof.2">lowest cost per chat</span></div>
+        <div class="rv" style="--i:2"><b class="num" data-to="6.35" data-dec="2" data-suf="%">6.35%</b><span data-i18n="proof.3">click-through rate on paid social</span></div>
+        <div class="rv" style="--i:3"><b class="num" data-to="4" data-suf="+">4+</b><span data-i18n="proof.4">years in design &amp; ads</span></div>
       </div>
     </div>
   </section>
@@ -322,51 +327,51 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
     <div class="wrap">
       <div class="head">
         <div class="rv">
-          <div class="tag">Ads case studies</div>
-          <h2 class="h2">Numbers, straight from<br />Ads Manager.</h2>
+          <div class="tag" data-i18n="res.tag">Ads case studies</div>
+          <h2 class="h2" data-i18n="res.h2">Numbers, straight from<br />Ads Manager.</h2>
         </div>
-        <p class="rv">No estimates. Every figure below comes from Meta Ads Manager, Google Ads, and Google Business Profile. Client names are kept private.</p>
+        <p class="rv" data-i18n="res.p">No estimates. Every figure below comes from Meta Ads Manager, Google Ads, and Google Business Profile. Client names are kept private.</p>
       </div>
 
       <!-- Case 1 -->
       <article class="case" id="case-lead-to-chat">
         <div>
         <div class="tile rv">
-          <span class="badge"><i></i>Meta Ads · Lead to chat</span>
+          <span class="badge" data-i18n="c1.badge"><i></i>Meta Ads · Lead to chat</span>
           <div>
             <div class="big num" data-to="220">220</div>
-            <p>chats from potential buyers</p>
-            <small>Apr – Oct 2026 · avg Rp17,891 per chat</small>
+            <p data-i18n="c1.tile">chats from potential buyers</p>
+            <small data-i18n="c1.small">Apr – Oct 2026 · avg Rp17,891 per chat</small>
           </div>
         </div>
         <figure class="topad rv">
           <img src="img/top-creative-tukar-poin.jpg" alt="Promo Tukar Poin ad creative, a reel showing the main prize" width="352" height="552" loading="lazy" />
-          <figcaption><span class="k">Top creative</span><b>Promo Tukar Poin</b>Reel ad · 77 chats in 8 days</figcaption>
+          <figcaption data-i18n="c1.fig"><span class="k">Top creative</span><b>Promo Tukar Poin</b>Reel ad · 77 chats in 8 days</figcaption>
         </figure>
         </div>
         <div>
           <div class="rv">
-            <div class="client">Local services brand · Multi-branch, Greater Jakarta</div>
-            <h3>Six lead campaigns, one goal: get people to start a chat.</h3>
+            <div class="client" data-i18n="c1.client">Local services brand · Multi-branch, Greater Jakarta</div>
+            <h3 data-i18n="c1.h3">Six lead campaigns, one goal: get people to start a chat.</h3>
           </div>
           <div class="kpis rv">
-            <div><b class="num" data-to="17891" data-pre="Rp">Rp17,891</b><span>average cost per chat</span></div>
-            <div><b class="num" data-to="343" data-suf="K+">343K+</b><span>ad impressions</span></div>
-            <div><b class="num" data-to="2690">2,690</b><span>link clicks</span></div>
-            <div><b class="num" data-to="6">6</b><span>campaigns in 7 months</span></div>
+            <div><b class="num" data-to="17891" data-pre="Rp">Rp17,891</b><span data-i18n="c1.k1">average cost per chat</span></div>
+            <div><b class="num" data-to="343" data-suf="K+">343K+</b><span data-i18n="c1.k2">ad impressions</span></div>
+            <div><b class="num" data-to="2690">2,690</b><span data-i18n="c1.k3">link clicks</span></div>
+            <div><b class="num" data-to="6">6</b><span data-i18n="c1.k4">campaigns in 7 months</span></div>
           </div>
           <ul class="bars rv" data-bars>
-            <li><div><div class="n">Promo Tukar Poin</div><div class="s">April 2026</div></div><div class="t"><div class="f" data-w="100"></div></div><div class="c num">77</div></li>
-            <li><div><div class="n">Single-branch campaign</div><div class="s">May 2026 · local ads</div></div><div class="t"><div class="f" data-w="94.8"></div></div><div class="c num">73</div></li>
+            <li><div><div class="n">Promo Tukar Poin</div><div class="s" data-i18n="c1.b1s">April 2026</div></div><div class="t"><div class="f" data-w="100"></div></div><div class="c num">77</div></li>
+            <li><div><div class="n" data-i18n="c1.branch">Single-branch campaign</div><div class="s" data-i18n="c1.b2s">May 2026 · local ads</div></div><div class="t"><div class="f" data-w="94.8"></div></div><div class="c num">73</div></li>
             <li><div><div class="n">Human Stand</div><div class="s">September 2026</div></div><div class="t"><div class="f" data-w="41.6"></div></div><div class="c num">32</div></li>
-            <li><div><div class="n">Spin Wheel</div><div class="s">October 2026 · gamification</div></div><div class="t"><div class="f" data-w="41.6"></div></div><div class="c num">32</div></li>
-            <li class="dim"><div><div class="n">2 test campaigns</div><div class="s">June &amp; August 2026</div></div><div class="t"><div class="f" data-w="7.8"></div></div><div class="c num">6</div></li>
+            <li><div><div class="n">Spin Wheel</div><div class="s" data-i18n="c1.b4s">October 2026 · gamification</div></div><div class="t"><div class="f" data-w="41.6"></div></div><div class="c num">32</div></li>
+            <li class="dim"><div><div class="n" data-i18n="c1.b5n">2 test campaigns</div><div class="s" data-i18n="c1.b5s">June &amp; August 2026</div></div><div class="t"><div class="f" data-w="7.8"></div></div><div class="c num">6</div></li>
           </ul>
-          <p class="note">Chat = messaging conversation started (7-day click / 1-day view attribution).</p>
+          <p class="note" data-i18n="c1.note">Chat = messaging conversation started (7-day click / 1-day view attribution).</p>
           <ul class="hls">
-            <li class="rv"><div><div class="k">Most chats</div><div class="t">Promo Tukar Poin</div><div class="d">A loyalty offer that got people asking right away.</div></div><div><div class="v num">77</div><div class="u">chats · 8 days</div></div></li>
-            <li class="rv"><div><div class="k">Lowest cost per chat</div><div class="t">Spin Wheel</div><div class="d">Gamification made people curious enough to message.</div></div><div><div class="v num">Rp6,424</div><div class="u">per chat</div></div></li>
-            <li class="rv"><div><div class="k">Widest local reach</div><div class="t">Single-branch campaign</div><div class="d">Area-targeted ads for one branch brought in 73 chats.</div></div><div><div class="v num">102K</div><div class="u">people reached</div></div></li>
+            <li class="rv"><div><div class="k" data-i18n="c1.h1k">Most chats</div><div class="t">Promo Tukar Poin</div><div class="d" data-i18n="c1.h1d">A loyalty offer that got people asking right away.</div></div><div><div class="v num">77</div><div class="u" data-i18n="c1.h1u">chats · 8 days</div></div></li>
+            <li class="rv"><div><div class="k" data-i18n="c1.h2k">Lowest cost per chat</div><div class="t">Spin Wheel</div><div class="d" data-i18n="c1.h2d">Gamification made people curious enough to message.</div></div><div><div class="v num" data-i18n="c1.h2v">Rp6,424</div><div class="u">per chat</div></div></li>
+            <li class="rv"><div><div class="k" data-i18n="c1.h3k">Widest local reach</div><div class="t" data-i18n="c1.branch">Single-branch campaign</div><div class="d" data-i18n="c1.h3d">Area-targeted ads for one branch brought in 73 chats.</div></div><div><div class="v num">102K</div><div class="u" data-i18n="c1.h3u">people reached</div></div></li>
           </ul>
         </div>
       </article>
@@ -374,29 +379,29 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
       <!-- Case 2 -->
       <article class="case" id="case-google-business">
         <div class="rv">
-          <div class="tag">Featured project</div>
-          <h3 style="font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.045em;line-height:1">Local services brand</h3>
+          <div class="tag" data-i18n="c2.tag">Featured project</div>
+          <h3 style="font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.045em;line-height:1" data-i18n="c2.h3">Local services brand</h3>
           <dl class="meta">
-            <div><dt>Year</dt><dd>2026</dd></div>
-            <div><dt>Scope</dt><dd>Google Ads (Performance Max) · Meta Ads · Google Business</dd></div>
-            <div><dt>Ad spend</dt><dd>Under Rp10M total</dd></div>
-            <div><dt>Branches</dt><dd>Multiple</dd></div>
+            <div><dt data-i18n="c2.year">Year</dt><dd>2026</dd></div>
+            <div><dt data-i18n="c2.scope">Scope</dt><dd>Google Ads (Performance Max) · Meta Ads · Google Business</dd></div>
+            <div><dt data-i18n="c2.spend">Ad spend</dt><dd data-i18n="c2.spendv">Under Rp10M total</dd></div>
+            <div><dt data-i18n="c2.branches">Branches</dt><dd data-i18n="c2.branchesv">Multiple</dd></div>
           </dl>
         </div>
         <div>
           <dl class="story rv">
-            <div><dt>The problem</dt><dd>Growth leaned on repeat customers and referrals. There was no structured paid strategy, the Google Business Profiles of every branch weren't optimised, creatives showed products instead of customer pain points, and leads from digital channels were inconsistent.</dd></div>
-            <div><dt>The strategy</dt><dd>I was brought in to grow the Google Business Profiles through Google Ads. I ran Performance Max and set it up end to end: headlines, promo offers, links, and the rest of the campaign settings. Alongside it, Meta Ads aimed at SMEs, F&amp;B businesses, fashion brands, and event organizers tested product showcases, promo offers, and problem–solution messaging, scaled the winners, and sent prospects straight to WhatsApp.</dd></div>
-            <div><dt>Creative</dt><dd>Outcomes over services: what customers actually get out of it, shown in real-world use. For Performance Max, I wrote the headlines and promo assets myself.</dd></div>
-            <div><dt>The results</dt><dd>From January to October 2026, monthly Google Business Profile views across all branches grew 216%, about 3.2 times. Customer actions (calls, website clicks, and direction requests) grew 90%, almost double. On Meta Ads, the campaigns held a 6.35% CTR.</dd></div>
+            <div><dt data-i18n="c2.pt">The problem</dt><dd data-i18n="c2.p">Growth leaned on repeat customers and referrals. There was no structured paid strategy, the Google Business Profiles of every branch weren't optimised, creatives showed products instead of customer pain points, and leads from digital channels were inconsistent.</dd></div>
+            <div><dt data-i18n="c2.st">The strategy</dt><dd data-i18n="c2.s">I was brought in to grow the Google Business Profiles through Google Ads. I ran Performance Max and set it up end to end: headlines, promo offers, links, and the rest of the campaign settings. Alongside it, Meta Ads aimed at SMEs, F&amp;B businesses, fashion brands, and event organizers tested product showcases, promo offers, and problem–solution messaging, scaled the winners, and sent prospects straight to WhatsApp.</dd></div>
+            <div><dt data-i18n="c2.ct">Creative</dt><dd data-i18n="c2.c">Outcomes over services: what customers actually get out of it, shown in real-world use. For Performance Max, I wrote the headlines and promo assets myself.</dd></div>
+            <div><dt data-i18n="c2.rt">The results</dt><dd data-i18n="c2.r">From January to October 2026, monthly Google Business Profile views across all branches grew 216%, about 3.2 times. Customer actions (calls, website clicks, and direction requests) grew 90%, almost double. On Meta Ads, the campaigns held a 6.35% CTR.</dd></div>
           </dl>
           <div class="statrow rv" style="margin-top:36px">
-            <div><b class="num" data-to="216" data-pre="+" data-suf="%">+216%</b><span>Google Business profile views, Jan → Oct</span></div>
-            <div><b class="num" data-to="90" data-pre="+" data-suf="%">+90%</b><span>Google Business customer actions, Jan → Oct</span></div>
-            <div><b class="num" data-to="20" data-suf="K+">20K+</b><span>calls, website clicks &amp; direction requests in 10 months</span></div>
+            <div><b class="num" data-to="216" data-pre="+" data-suf="%">+216%</b><span data-i18n="c2.s1">Google Business profile views, Jan → Oct</span></div>
+            <div><b class="num" data-to="90" data-pre="+" data-suf="%">+90%</b><span data-i18n="c2.s2">Google Business customer actions, Jan → Oct</span></div>
+            <div><b class="num" data-to="20" data-suf="K+">20K+</b><span data-i18n="c2.s3">calls, website clicks &amp; direction requests in 10 months</span></div>
             <div><b class="num" data-to="6.35" data-dec="2" data-suf="%">6.35%</b><span>Meta Ads CTR</span></div>
-            <div><b class="num" data-to="1.8" data-dec="1" data-suf="K">1.8K</b><span>Meta Ads clicks</span></div>
-            <div><b class="num" data-to="28.5" data-dec="1" data-suf="K">28.5K</b><span>Meta Ads impressions</span></div>
+            <div><b class="num" data-to="1.8" data-dec="1" data-suf="K">1.8K</b><span data-i18n="c2.s5">Meta Ads clicks</span></div>
+            <div><b class="num" data-to="28.5" data-dec="1" data-suf="K">28.5K</b><span data-i18n="c2.s6">Meta Ads impressions</span></div>
           </div>
         </div>
       </article>
@@ -408,102 +413,102 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
     <div class="wrap">
       <div class="head">
         <div class="rv">
-          <div class="tag">Selected work</div>
-          <h2 class="h2">Design that does a job.</h2>
+          <div class="tag" data-i18n="work.tag">Selected work</div>
+          <h2 class="h2" data-i18n="work.h2">Design that does a job.</h2>
         </div>
-        <p class="rv">Social media accounts I handle, brand identities, and campaign visuals. Tap a project to flip through every design.</p>
+        <p class="rv" data-i18n="work.p">Social media accounts I handle, brand identities, and campaign visuals. Tap a project to flip through every design.</p>
       </div>
 
       <div class="filters rv" role="group" aria-label="Filter work">
-        <button type="button" aria-pressed="true" data-f="all">All</button>
-        <button type="button" aria-pressed="false" data-f="social">Social media</button>
-        <button type="button" aria-pressed="false" data-f="campaign">Campaign</button>
+        <button type="button" aria-pressed="true" data-f="all" data-i18n="f.all">All</button>
+        <button type="button" aria-pressed="false" data-f="social" data-i18n="f.social">Social media</button>
+        <button type="button" aria-pressed="false" data-f="campaign" data-i18n="f.campaign">Campaign</button>
         <button type="button" aria-pressed="false" data-f="branding">Branding</button>
-        <button type="button" aria-pressed="false" data-f="event">Event</button>
+        <button type="button" aria-pressed="false" data-f="event" data-i18n="f.event">Event</button>
       </div>
 
       <div class="grid">
         <article class="card rv" data-cat="social" style="--i:0">
           <button type="button" class="media" data-g="kaheins" aria-label="Open Kaheins Cookies feed">
             <img src="img/kaheins/cover-mockup.jpg" alt="Kaheins Cookies Instagram feed on a phone mockup" loading="lazy" width="720" height="900" />
-            <span class="count">11 designs</span>
+            <span class="count" data-i18n="n.11">11 designs</span>
           </button>
           <div class="body">
-            <div class="tag">Social media handling</div>
+            <div class="tag" data-i18n="t.smh">Social media handling</div>
             <h3>Kaheins Cookies</h3>
             <div class="c">@kaheins.sweetbaked</div>
-            <p>Instagram content for every preorder batch, new menu launches, reviews, events, and B2B gift offers.</p>
-            <button type="button" class="more" data-g="kaheins"><span class="ulink">View feed</span><span class="arr">→</span></button>
+            <p data-i18n="w.kaheins">Instagram content for every preorder batch, new menu launches, reviews, events, and B2B gift offers.</p>
+            <button type="button" class="more" data-g="kaheins"><span class="ulink" data-i18n="m.feed">View feed</span><span class="arr">→</span></button>
           </div>
         </article>
 
         <article class="card rv" data-cat="social" style="--i:1">
           <button type="button" class="media" data-g="mdta" aria-label="Open MDTA Fisabilillah feed">
             <img src="img/mdta/talkshow-hari-santri.jpg" alt="MDTA Fisabilillah Hari Santri talkshow poster" loading="lazy" width="720" height="900" />
-            <span class="count">8 designs</span>
+            <span class="count" data-i18n="n.8">8 designs</span>
           </button>
           <div class="body">
-            <div class="tag">Social media handling</div>
+            <div class="tag" data-i18n="t.smh">Social media handling</div>
             <h3>MDTA Fisabilillah</h3>
             <div class="c">@mdta_fisabilillah</div>
-            <p>Event coverage, talkshow publicity, religious and national day greetings, education posts, and a 2027 calendar fundraiser.</p>
-            <button type="button" class="more" data-g="mdta"><span class="ulink">View feed</span><span class="arr">→</span></button>
+            <p data-i18n="w.mdta">Event coverage, talkshow publicity, religious and national day greetings, education posts, and a 2027 calendar fundraiser.</p>
+            <button type="button" class="more" data-g="mdta"><span class="ulink" data-i18n="m.feed">View feed</span><span class="arr">→</span></button>
           </div>
         </article>
 
         <article class="card rv" data-cat="social" style="--i:2">
           <button type="button" class="media" data-g="rafa" aria-label="Open Jasa Setrika Mama Rafa feed">
             <img src="img/mama-rafa/cover.jpg" alt="Jasa Setrika Mama Rafa Instagram profile on a phone mockup" loading="lazy" width="840" height="560" />
-            <span class="count">8 designs</span>
+            <span class="count" data-i18n="n.8">8 designs</span>
           </button>
           <div class="body">
-            <div class="tag">Social media handling</div>
+            <div class="tag" data-i18n="t.smh">Social media handling</div>
             <h3>Jasa Setrika Mama Rafa</h3>
             <div class="c">@jasasetrika.mamarafa</div>
-            <p>A three-month content system for a local pickup-and-delivery ironing service: Google review push, free-delivery promos, holiday greetings, and education.</p>
-            <button type="button" class="more" data-g="rafa"><span class="ulink">View feed</span><span class="arr">→</span></button>
+            <p data-i18n="w.rafa">A three-month content system for a local pickup-and-delivery ironing service: Google review push, free-delivery promos, holiday greetings, and education.</p>
+            <button type="button" class="more" data-g="rafa"><span class="ulink" data-i18n="m.feed">View feed</span><span class="arr">→</span></button>
           </div>
         </article>
 
         <article class="card rv" data-cat="event branding" style="--i:0">
           <button type="button" class="media" data-g="sprinkle" aria-label="Open Sprinkle Day photos">
             <img src="img/sprinkle-day/1.jpg" alt="Sprinkle Day cookie decorating workshop" loading="lazy" width="1000" height="750" />
-            <span class="count">2 photos</span>
+            <span class="count" data-i18n="n.2p">2 photos</span>
           </button>
           <div class="body">
-            <div class="tag">Event · Branding · Production</div>
+            <div class="tag" data-i18n="t.ebp">Event · Branding · Production</div>
             <h3>Sprinkle Day Batch 1</h3>
             <div class="c">Kaheins Sweetbaked</div>
-            <p>Event identity, backdrop, signage, awards, branded tees, and Instagram coverage for a cookie decorating workshop. <span class="res">17 of 20 tickets sold, 626 Instagram interactions.</span></p>
-            <button type="button" class="more" data-g="sprinkle"><span class="ulink">View photos</span><span class="arr">→</span></button>
+            <p data-i18n="w.sprinkle">Event identity, backdrop, signage, awards, branded tees, and Instagram coverage for a cookie decorating workshop. <span class="res">17 of 20 tickets sold, 626 Instagram interactions.</span></p>
+            <button type="button" class="more" data-g="sprinkle"><span class="ulink" data-i18n="m.photos">View photos</span><span class="arr">→</span></button>
           </div>
         </article>
 
         <article class="card rv" data-cat="campaign social" style="--i:1">
           <button type="button" class="media" data-g="rp10" aria-label="Open Ruangprint 10th anniversary feed">
             <img src="img/ruangprint-10th/salebration.jpg" alt="Ruangprint Salebration 10th anniversary key visual" loading="lazy" width="720" height="900" />
-            <span class="count">9 designs</span>
+            <span class="count" data-i18n="n.9">9 designs</span>
           </button>
           <div class="body">
-            <div class="tag">Campaign · Social media</div>
+            <div class="tag" data-i18n="t.cs">Campaign · Social media</div>
             <h3>Ruangprint 10th Salebration</h3>
-            <div class="c">Ruangprint · April – May 2025</div>
-            <p>Anniversary campaign feed: storewide discounts, daily flash sales, spin &amp; win prizes, branded tumblers, plus the regular holiday and hiring posts. <span class="res">Followers and interactions up 75%.</span></p>
-            <button type="button" class="more" data-g="rp10"><span class="ulink">View feed</span><span class="arr">→</span></button>
+            <div class="c" data-i18n="w.rp10c">Ruangprint · April – May 2025</div>
+            <p data-i18n="w.rp10">Anniversary campaign feed: storewide discounts, daily flash sales, spin &amp; win prizes, branded tumblers, plus the regular holiday and hiring posts. <span class="res">Followers and interactions up 75%.</span></p>
+            <button type="button" class="more" data-g="rp10"><span class="ulink" data-i18n="m.feed">View feed</span><span class="arr">→</span></button>
           </div>
         </article>
 
         <article class="card rv" data-cat="campaign social" style="--i:2">
           <button type="button" class="media" data-g="rpck" aria-label="Open Ruangprint Cetak Kebaikan feed">
             <img src="img/cetak-kebaikan/key-visual.jpg" alt="Ruangprint Cetak Kebaikan Ramadan key visual" loading="lazy" width="720" height="900" />
-            <span class="count">12 designs</span>
+            <span class="count" data-i18n="n.12">12 designs</span>
           </button>
           <div class="body">
-            <div class="tag">Campaign · Social media</div>
+            <div class="tag" data-i18n="t.cs">Campaign · Social media</div>
             <h3>Cetak Kebaikan</h3>
-            <div class="c">Ruangprint · March – April 2025</div>
-            <p>Ramadan campaign feed for Ruangprint and the Ruangprint Mobile app: discounts and daily flash sales up to 15%, Ramadan product picks, an app review push, an imsakiyah schedule, and an all-store iftar event.</p>
-            <button type="button" class="more" data-g="rpck"><span class="ulink">View feed</span><span class="arr">→</span></button>
+            <div class="c" data-i18n="w.rpckc">Ruangprint · March – April 2025</div>
+            <p data-i18n="w.rpck">Ramadan campaign feed for Ruangprint and the Ruangprint Mobile app: discounts and daily flash sales up to 15%, Ramadan product picks, an app review push, an imsakiyah schedule, and an all-store iftar event.</p>
+            <button type="button" class="more" data-g="rpck"><span class="ulink" data-i18n="m.feed">View feed</span><span class="arr">→</span></button>
           </div>
         </article>
 
@@ -514,9 +519,9 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
           <div class="body">
             <div class="tag">Branding</div>
             <h3>Khaira Cookies</h3>
-            <div class="c">Cookie store</div>
-            <p>Visual identity including logo, packaging, motion, and collateral.</p>
-            <button type="button" class="more" data-g="khaira"><span class="ulink">View design</span><span class="arr">→</span></button>
+            <div class="c" data-i18n="w.khairac">Cookie store</div>
+            <p data-i18n="w.khaira">Visual identity including logo, packaging, motion, and collateral.</p>
+            <button type="button" class="more" data-g="khaira"><span class="ulink" data-i18n="m.design">View design</span><span class="arr">→</span></button>
           </div>
         </article>
 
@@ -525,11 +530,11 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
             <img src="img/mdta-food-festival.jpg" alt="MDTA Muharram Food Festival logo pattern" loading="lazy" width="1200" height="800" />
           </button>
           <div class="body">
-            <div class="tag">Event identity</div>
+            <div class="tag" data-i18n="t.ei">Event identity</div>
             <h3>Muharram Food Festival</h3>
             <div class="c">MDTA Fisabilillah</div>
-            <p>Visual identity for a Muharram food festival.</p>
-            <button type="button" class="more" data-g="food"><span class="ulink">View design</span><span class="arr">→</span></button>
+            <p data-i18n="w.food">Visual identity for a Muharram food festival.</p>
+            <button type="button" class="more" data-g="food"><span class="ulink" data-i18n="m.design">View design</span><span class="arr">→</span></button>
           </div>
         </article>
       </div>
@@ -541,18 +546,18 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
     <div class="wrap">
       <div class="head">
         <div class="rv">
-          <div class="tag">What I do</div>
-          <h2 class="h2">From concept<br />to conversion.</h2>
+          <div class="tag" data-i18n="svc.tag">What I do</div>
+          <h2 class="h2" data-i18n="svc.h2">From concept<br />to conversion.</h2>
         </div>
-        <p class="rv">One person on both sides: the design and the ads. So the creative gets changed the moment the numbers say so.</p>
+        <p class="rv" data-i18n="svc.p">One person on both sides: the design and the ads. So the creative gets changed the moment the numbers say so.</p>
       </div>
       <ol class="svc">
-        <li class="rv"><span class="i num">01</span><h3>Brand Identity</h3><p>Logo systems, typography, colour, and guidelines that make a brand easy to recognise.</p></li>
-        <li class="rv"><span class="i num">02</span><h3>Social Media Design</h3><p>Feeds, carousels, and stories for Instagram and TikTok that stay consistent post after post.</p></li>
-        <li class="rv"><span class="i num">03</span><h3>Advertising Campaigns</h3><p>Meta Ads from brief and audience to creative testing, optimisation, and honest reporting.</p></li>
-        <li class="rv"><span class="i num">04</span><h3>Creative Strategy</h3><p>Audience insight and messaging that connect what the brand wants to say with what people respond to.</p></li>
-        <li class="rv"><span class="i num">05</span><h3>Content Design</h3><p>Ad creatives, reels, statics, and motion built to perform across every placement.</p></li>
-        <li class="rv"><span class="i num">06</span><h3>Landing Pages</h3><p>Mobile-first pages with a clear flow from first scroll to WhatsApp chat.</p></li>
+        <li class="rv"><span class="i num">01</span><h3 data-i18n="svc.1h">Brand Identity</h3><p data-i18n="svc.1p">Logo systems, typography, colour, and guidelines that make a brand easy to recognise.</p></li>
+        <li class="rv"><span class="i num">02</span><h3 data-i18n="svc.2h">Social Media Design</h3><p data-i18n="svc.2p">Feeds, carousels, and stories for Instagram and TikTok that stay consistent post after post.</p></li>
+        <li class="rv"><span class="i num">03</span><h3 data-i18n="svc.3h">Advertising Campaigns</h3><p data-i18n="svc.3p">Meta Ads from brief and audience to creative testing, optimisation, and honest reporting.</p></li>
+        <li class="rv"><span class="i num">04</span><h3 data-i18n="svc.4h">Creative Strategy</h3><p data-i18n="svc.4p">Audience insight and messaging that connect what the brand wants to say with what people respond to.</p></li>
+        <li class="rv"><span class="i num">05</span><h3 data-i18n="svc.5h">Content Design</h3><p data-i18n="svc.5p">Ad creatives, reels, statics, and motion built to perform across every placement.</p></li>
+        <li class="rv"><span class="i num">06</span><h3 data-i18n="svc.6h">Landing Pages</h3><p data-i18n="svc.6p">Mobile-first pages with a clear flow from first scroll to WhatsApp chat.</p></li>
       </ol>
     </div>
   </section>
@@ -561,19 +566,19 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
   <section class="section bt" id="about">
     <div class="wrap about">
       <div>
-        <div class="tag rv">About</div>
-        <h2 class="h2 rv">Design craft,<br /><span class="muted">data habits.</span></h2>
-        <p class="rv">I've spent <b>4+ years</b> helping brands grow through visuals and performance ads, from building identities from scratch to running Meta campaigns that bring in real conversations.</p>
-        <p class="rv">My work sits where aesthetics meet numbers: if a design looks good but doesn't move a metric, it gets reworked.</p>
+        <div class="tag rv" data-i18n="ab.tag">About</div>
+        <h2 class="h2 rv" data-i18n="ab.h2">Design craft,<br /><span class="muted">data habits.</span></h2>
+        <p class="rv" data-i18n="ab.p1">I've spent <b>4+ years</b> helping brands grow through visuals and performance ads, from building identities from scratch to running Meta campaigns that bring in real conversations.</p>
+        <p class="rv" data-i18n="ab.p2">My work sits where aesthetics meet numbers: if a design looks good but doesn't move a metric, it gets reworked.</p>
         <div class="skills rv">
           <span>Branding</span><span>Social Media Design</span><span>Meta Ads</span><span>TikTok Ads</span><span>Google Business</span><span>Creative Direction</span><span>Adobe Suite</span><span>After Effects</span>
         </div>
       </div>
       <div class="stats rv">
-        <div><b class="num" data-to="4" data-suf="+">4+</b><span>years of experience</span></div>
-        <div><b class="num" data-to="50" data-suf="+">50+</b><span>projects completed</span></div>
-        <div><b class="num" data-to="10" data-suf="+">10+</b><span>ad campaigns run</span></div>
-        <div><b class="num" data-to="98" data-suf="%">98%</b><span>client satisfaction</span></div>
+        <div><b class="num" data-to="4" data-suf="+">4+</b><span data-i18n="ab.s1">years of experience</span></div>
+        <div><b class="num" data-to="50" data-suf="+">50+</b><span data-i18n="ab.s2">projects completed</span></div>
+        <div><b class="num" data-to="10" data-suf="+">10+</b><span data-i18n="ab.s3">ad campaigns run</span></div>
+        <div><b class="num" data-to="98" data-suf="%">98%</b><span data-i18n="ab.s4">client satisfaction</span></div>
       </div>
     </div>
   </section>
@@ -581,12 +586,12 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
   <!-- CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap">
-      <div class="tag rv">Get in touch</div>
-      <h2 class="rv">Let's create<br />something.</h2>
-      <p class="rv">Tell me about the brand, the goal, and the timeline. I'll reply with how I'd approach it.</p>
+      <div class="tag rv" data-i18n="ct.tag">Get in touch</div>
+      <h2 class="rv" data-i18n="ct.h2">Let's create<br />something.</h2>
+      <p class="rv" data-i18n="ct.p">Tell me about the brand, the goal, and the timeline. I'll reply with how I'd approach it.</p>
       <div class="actions rv">
-        <a class="btn btn-solid" href="mailto:falkadrr@gmail.com?subject=Project%20inquiry">Email me <span class="arr">→</span></a>
-        <a class="btn" href="https://instagram.com/falkaadrr" target="_blank" rel="noopener">DM on Instagram</a>
+        <a class="btn btn-solid" href="mailto:falkadrr@gmail.com?subject=Project%20inquiry" data-i18n="ct.email">Email me <span class="arr">→</span></a>
+        <a class="btn" href="https://instagram.com/falkaadrr" target="_blank" rel="noopener" data-i18n="ct.dm">DM on Instagram</a>
       </div>
       <dl class="links">
         <div class="rv" style="--i:0"><dt>Email</dt><dd><a class="ulink" href="mailto:falkadrr@gmail.com">falkadrr@gmail.com</a></dd></div>
@@ -647,6 +652,117 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
     food: ["Muharram Food Festival", "img/", [["mdta-food-festival", "Logo pattern"]]]
   };
 
+  /* ---------- language (EN / ID) ---------- */
+  var ID = {
+    "nav.results": "Hasil", "nav.work": "Karya", "nav.services": "Layanan", "nav.about": "Tentang",
+    "nav.talk": 'Hubungi <span class="arr">→</span>',
+    "hero.eyebrow": '<span class="dot"></span>Terbuka untuk proyek · 2026 · Tangerang',
+    "hero.l1": "Visual yang menjual.", "hero.l2": "Iklan yang membuktikannya.",
+    "hero.intro": "Saya <b>Falka Derizqia</b>, graphic designer dan ads specialist. Saya mendesain identitas brand dan konten sosial media, lalu menjalankan Meta Ads yang mengubahnya jadi chat, leads, dan penjualan.",
+    "hero.cta1": 'Lihat hasilnya <span class="arr">→</span>', "hero.cta2": "Ayo kerja sama",
+    "proof.1": "chat dari satu klien Meta Ads", "proof.2": "biaya per chat terendah",
+    "proof.3": "click-through rate di iklan sosial media", "proof.4": "tahun di desain &amp; iklan",
+    "res.tag": "Studi kasus iklan", "res.h2": "Angka langsung dari<br />Ads Manager.",
+    "res.p": "Bukan perkiraan. Semua angka di bawah diambil dari Meta Ads Manager, Google Ads, dan Google Business Profile. Nama klien sengaja dirahasiakan.",
+    "c1.badge": "<i></i>Meta Ads · Lead ke chat", "c1.tile": "chat dari calon pembeli",
+    "c1.small": "Apr – Okt 2026 · rata-rata Rp17.891 per chat",
+    "c1.fig": '<span class="k">Kreatif terbaik</span><b>Promo Tukar Poin</b>Iklan Reels · 77 chat dalam 8 hari',
+    "c1.client": "Brand jasa lokal · Multi-cabang, Jabodetabek",
+    "c1.h3": "Enam kampanye leads, satu tujuan: membuat orang memulai chat.",
+    "c1.k1": "rata-rata biaya per chat", "c1.k2": "impresi iklan", "c1.k3": "klik link", "c1.k4": "kampanye dalam 7 bulan",
+    "c1.b1s": "April 2026", "c1.branch": "Kampanye satu cabang", "c1.b2s": "Mei 2026 · iklan lokal",
+    "c1.b4s": "Oktober 2026 · gamifikasi", "c1.b5n": "2 kampanye uji coba", "c1.b5s": "Juni &amp; Agustus 2026",
+    "c1.note": "Chat = percakapan pesan yang dimulai (atribusi 7 hari setelah klik / 1 hari setelah tayang).",
+    "c1.h1k": "Chat terbanyak", "c1.h1d": "Penawaran loyalitas yang bikin orang langsung bertanya.", "c1.h1u": "chat · 8 hari",
+    "c1.h2k": "Biaya per chat terendah", "c1.h2d": "Gamifikasi bikin orang cukup penasaran untuk kirim pesan.", "c1.h2v": "Rp6.424",
+    "c1.h3k": "Jangkauan lokal terluas", "c1.h3d": "Iklan berbasis area untuk satu cabang menghasilkan 73 chat.", "c1.h3u": "orang terjangkau",
+    "c2.tag": "Proyek unggulan", "c2.h3": "Brand jasa lokal",
+    "c2.year": "Tahun", "c2.scope": "Cakupan", "c2.spend": "Biaya iklan", "c2.spendv": "Di bawah Rp10 jt total",
+    "c2.branches": "Cabang", "c2.branchesv": "Beberapa",
+    "c2.pt": "Masalah", "c2.st": "Strategi", "c2.ct": "Kreatif", "c2.rt": "Hasil",
+    "c2.p": "Pertumbuhan masih bergantung pada pelanggan lama dan rekomendasi. Belum ada strategi iklan berbayar yang terstruktur, Google Business Profile di setiap cabang belum optimal, kreatifnya menampilkan produk alih-alih masalah pelanggan, dan leads dari kanal digital tidak konsisten.",
+    "c2.s": "Saya ditugaskan menumbuhkan Google Business Profile lewat Google Ads. Saya menjalankan Performance Max dan mengaturnya dari awal sampai akhir: judul, promo, link, dan pengaturan kampanye lainnya. Di saat yang sama, Meta Ads yang menyasar UMKM, bisnis F&amp;B, brand fashion, dan event organizer menguji product showcase, penawaran promo, dan pesan problem–solution, lalu menskalakan yang terbaik dan mengarahkan calon pelanggan langsung ke WhatsApp.",
+    "c2.c": "Hasil, bukan sekadar layanan: apa yang benar-benar didapat pelanggan, ditampilkan dalam penggunaan nyata. Untuk Performance Max, judul dan aset promonya saya tulis sendiri.",
+    "c2.r": "Dari Januari sampai Oktober 2026, tayangan bulanan Google Business Profile di semua cabang naik 216%, sekitar 3,2 kali lipat. Aksi pelanggan (telepon, klik website, dan permintaan rute) naik 90%, hampir dua kali lipat. Di Meta Ads, kampanyenya menjaga CTR 6,35%.",
+    "c2.s1": "tayangan profil Google Business, Jan → Okt", "c2.s2": "aksi pelanggan Google Business, Jan → Okt",
+    "c2.s3": "telepon, klik website &amp; permintaan rute dalam 10 bulan", "c2.s5": "klik Meta Ads", "c2.s6": "impresi Meta Ads",
+    "work.tag": "Karya pilihan", "work.h2": "Desain yang punya tujuan.",
+    "work.p": "Akun sosial media yang saya pegang, identitas brand, dan visual kampanye. Klik proyek untuk melihat semua desainnya.",
+    "f.all": "Semua", "f.social": "Sosial media", "f.campaign": "Kampanye", "f.event": "Event",
+    "n.11": "11 desain", "n.8": "8 desain", "n.2p": "2 foto", "n.9": "9 desain", "n.12": "12 desain",
+    "t.smh": "Pengelolaan sosial media", "t.ebp": "Event · Branding · Produksi", "t.cs": "Kampanye · Sosial media", "t.ei": "Identitas event",
+    "w.kaheins": "Konten Instagram untuk setiap batch preorder, peluncuran menu baru, review, event, dan penawaran hampers B2B.",
+    "w.mdta": "Dokumentasi acara, publikasi talkshow, ucapan hari besar keagamaan dan nasional, konten edukasi, dan penggalangan dana lewat kalender 2027.",
+    "w.rafa": "Sistem konten tiga bulan untuk jasa setrika lokal dengan layanan antar-jemput: ajakan review Google, promo gratis ongkir, ucapan hari raya, dan edukasi.",
+    "w.sprinkle": 'Identitas event, backdrop, signage, penghargaan, kaos branded, dan liputan Instagram untuk workshop dekorasi cookies. <span class="res">17 dari 20 tiket terjual, 626 interaksi Instagram.</span>',
+    "w.rp10c": "Ruangprint · April – Mei 2025",
+    "w.rp10": 'Feed kampanye ulang tahun: diskon semua produk, flash sale harian, hadiah spin &amp; win, tumbler branded, ditambah konten hari besar dan lowongan kerja rutin. <span class="res">Followers dan interaksi naik 75%.</span>',
+    "w.rpckc": "Ruangprint · Maret – April 2025",
+    "w.rpck": "Feed kampanye Ramadan untuk Ruangprint dan aplikasi Ruangprint Mobile: diskon dan flash sale harian hingga 15%, rekomendasi produk Ramadan, ajakan review aplikasi, jadwal imsakiyah, dan acara buka bersama di semua toko.",
+    "w.khairac": "Toko cookies", "w.khaira": "Identitas visual meliputi logo, kemasan, motion, dan collateral.",
+    "w.food": "Identitas visual untuk festival kuliner Muharram.",
+    "m.feed": "Lihat feed", "m.photos": "Lihat foto", "m.design": "Lihat desain",
+    "svc.tag": "Yang saya kerjakan", "svc.h2": "Dari konsep<br />sampai konversi.",
+    "svc.p": "Satu orang di dua sisi: desain dan iklan. Jadi kreatif bisa langsung diubah begitu angka menunjukkan perlu.",
+    "svc.1h": "Identitas Brand", "svc.1p": "Sistem logo, tipografi, warna, dan panduan yang membuat brand mudah dikenali.",
+    "svc.2h": "Desain Sosial Media", "svc.2p": "Feed, carousel, dan story untuk Instagram dan TikTok yang tetap konsisten dari satu posting ke posting berikutnya.",
+    "svc.3h": "Kampanye Iklan", "svc.3p": "Meta Ads mulai dari brief dan audiens sampai uji kreatif, optimasi, dan laporan yang jujur.",
+    "svc.4h": "Strategi Kreatif", "svc.4p": "Insight audiens dan pesan yang menghubungkan apa yang ingin disampaikan brand dengan apa yang direspons orang.",
+    "svc.5h": "Desain Konten", "svc.5p": "Kreatif iklan, reels, desain statis, dan motion yang dibuat untuk perform di setiap penempatan.",
+    "svc.6h": "Landing Page", "svc.6p": "Halaman mobile-first dengan alur jelas dari scroll pertama sampai chat WhatsApp.",
+    "ab.tag": "Tentang", "ab.h2": 'Jago desain,<br /><span class="muted">akrab dengan data.</span>',
+    "ab.p1": "Selama <b>4+ tahun</b> saya membantu brand tumbuh lewat visual dan iklan performa, dari membangun identitas dari nol sampai menjalankan kampanye Meta yang mendatangkan percakapan nyata.",
+    "ab.p2": "Kerja saya ada di titik temu estetika dan angka: kalau desainnya bagus tapi tidak menggerakkan metrik, desainnya saya kerjakan ulang.",
+    "ab.s1": "tahun pengalaman", "ab.s2": "proyek selesai", "ab.s3": "kampanye iklan dijalankan", "ab.s4": "kepuasan klien",
+    "ct.tag": "Hubungi saya", "ct.h2": "Ayo bikin<br />sesuatu.",
+    "ct.p": "Ceritakan soal brand, tujuan, dan timeline-nya. Saya akan membalas dengan pendekatan yang akan saya pakai.",
+    "ct.email": 'Kirim email <span class="arr">→</span>', "ct.dm": "DM di Instagram"
+  };
+  var CAP_ID = {
+    "Feed overview": "Tampilan feed", "New menu: Arsenio Cookies": "Menu baru: Arsenio Cookies",
+    "Preorder + Cookiestober voucher": "Preorder + voucher Cookiestober", "B2B: hampers & corporate gifts": "B2B: hampers & hadiah korporat",
+    "Event teaser": "Teaser event", "Google Maps review push": "Ajakan review Google Maps", "Customer testimonials": "Testimoni pelanggan",
+    "New menu: S'mores Cookies": "Menu baru: S'mores Cookies", "Hari Santri talkshow publicity": "Publikasi talkshow Hari Santri",
+    "2027 calendar preorder & fundraiser": "Preorder kalender 2027 & penggalangan dana", "Sumpah Pemuda greeting": "Ucapan Sumpah Pemuda",
+    "Maulid Nabi coverage": "Dokumentasi Maulid Nabi", "Muharram activities, Batch 1": "Kegiatan Muharram, Batch 1",
+    "Education post": "Konten edukasi", "Isra Miraj greeting": "Ucapan Isra Miraj", "Muharram activities, Batch II": "Kegiatan Muharram, Batch II",
+    "Google review push, free delivery": "Ajakan review Google, gratis antar", "Idul Adha greeting": "Ucapan Idul Adha",
+    "Promo for busy boarders": "Promo untuk anak kos yang sibuk", "Education: fabrics you shouldn't iron carelessly": "Edukasi: bahan baju yang tidak boleh disetrika sembarangan",
+    "Carousel closer: save & share": "Penutup carousel: simpan & bagikan", "Promo: leave the ironing to us": "Promo: serahkan urusan setrika ke kami",
+    "Pickup & delivery service": "Layanan antar-jemput",
+    "Key visual: Salebration 10th, 7 April – 5 May": "Key visual: Salebration 10th, 7 April – 5 Mei",
+    "Storewide discount + flash sale": "Diskon semua produk + flash sale", "Anniversary discount up to 10%": "Diskon ulang tahun hingga 10%",
+    "Spin & win: shop Rp200K to play": "Spin & win: belanja Rp200 rb untuk ikut", "Prize: 500 ml smart tumbler": "Hadiah: smart tumbler 500 ml",
+    "Hari Kartini greeting": "Ucapan Hari Kartini", "Labour Day greeting": "Ucapan Hari Buruh", "Hiring post: driver": "Lowongan kerja: sopir",
+    "Key visual: up to 15% off, 6 March – 5 April": "Key visual: diskon hingga 15%, 6 Maret – 5 April", "Campaign poster": "Poster kampanye",
+    "Product discounts + flash sale": "Diskon produk + flash sale", "Flash sale: Eid banner": "Flash sale: banner Lebaran",
+    "Ramadan stickers from Rp13K": "Stiker Ramadan mulai Rp13 rb", "Ramadan product picks": "Rekomendasi produk Ramadan",
+    "Download & review the app, extra 5% off": "Download & review aplikasinya, ekstra diskon 5%",
+    "Imsakiyah schedule, Ramadan 1446 H": "Jadwal imsakiyah Ramadan 1446 H", "Story: all-store iftar gathering": "Story: buka bersama di semua toko",
+    "Promo ending soon, comment prompt": "Promo segera berakhir, ajakan komentar", "Hiring post: cashier": "Lowongan kerja: kasir",
+    "Packaging": "Kemasan", "Logo pattern": "Pola logo"
+  };
+  var META_ID = "Falka Derizqia, graphic designer dan ads specialist di Tangerang. Identitas brand, desain sosial media, dan Meta Ads yang mengubah visual jadi chat, leads, dan penjualan.";
+  var lang = "en", metaDesc = document.querySelector('meta[name="description"]'), metaEN = metaDesc.content;
+  var i18nEls = document.querySelectorAll("[data-i18n]");
+  i18nEls.forEach(function (el) { el._en = el.innerHTML; });
+  function fmt(v, dec) { return v.toLocaleString(lang === "id" ? "id-ID" : "en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+  function finalNum(el) { var dec = +(el.dataset.dec || 0); el.textContent = (el.dataset.pre || "") + fmt(+el.dataset.to, dec) + (el.dataset.suf || ""); }
+  function setLang(l, save) {
+    lang = l === "id" ? "id" : "en";
+    document.documentElement.lang = lang;
+    i18nEls.forEach(function (el) { var t = lang === "id" && ID[el.dataset.i18n]; el.innerHTML = t || el._en; });
+    document.querySelectorAll("[data-to]").forEach(finalNum);
+    metaDesc.content = lang === "id" ? META_ID : metaEN;
+    document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.lang === lang); });
+    if (save) { try { localStorage.setItem("lang", lang); } catch (e) {} }
+  }
+  document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang, true); }); });
+  var startLang = null;
+  try { startLang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang"); } catch (e) {}
+  if (!startLang) startLang = /^id\b/i.test(navigator.language || "") ? "id" : "en";
+  if (startLang === "id") setLang("id");
+
   /* ---------- lightbox ---------- */
   var lb = document.getElementById("lb"), img = document.getElementById("lbImg");
   var cap = document.getElementById("lbCap"), num = document.getElementById("lbNum"), ttl = document.getElementById("lbTitle");
@@ -654,7 +770,7 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
   function show() {
     var g = G[cur], it = g[2][idx];
     img.src = g[1] + it[0] + ".jpg"; img.alt = g[0] + ": " + it[1];
-    cap.textContent = it[1]; num.textContent = g[2].length > 1 ? (idx + 1) + " / " + g[2].length : "";
+    cap.textContent = (lang === "id" && CAP_ID[it[1]]) || it[1]; num.textContent = g[2].length > 1 ? (idx + 1) + " / " + g[2].length : "";
     lb.querySelectorAll(".lb-nav").forEach(function (b) { b.hidden = g[2].length < 2; });
   }
   function open(k) { cur = k; idx = 0; ttl.textContent = G[k][0]; show(); lb.showModal(); document.documentElement.style.overflow = "hidden"; }
@@ -688,7 +804,6 @@ dialog::backdrop{background:rgba(0,0,0,.94)}
 
   /* ---------- reveal, count-up, bars ---------- */
   var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function fmt(v, dec) { return v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
   function count(el) {
     if (reduce || el.dataset.done) return; el.dataset.done = 1;
     var to = +el.dataset.to, dec = +(el.dataset.dec || 0), pre = el.dataset.pre || "", suf = el.dataset.suf || "", t0 = 0;
